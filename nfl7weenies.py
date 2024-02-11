@@ -1,6 +1,7 @@
 import sys
 import pandas as pd
 
+_TEAMS = ["49ers", "Chiefs"]
 _NAMES_FILE = "names.txt"
 _SQUARES_FILE = "squares.txt"
 _FILLER_NAMES = [
@@ -112,11 +113,14 @@ class NFL7Weenies:
             for player, square_list in squares.items():
                 rand_index = random.randrange(0, len(possible_xy))
                 squares[player].append(possible_xy.pop(rand_index))
-        # convert to grid
         #print(squares)
+        # convert to grid
         for player, square_list in squares.items():
             for (x, y)  in square_list:
                 self.df_squares.at[x, y] = player
+        t1 = _TEAMS.pop(random.randrange(0, len(_TEAMS)))
+        t2 = _TEAMS.pop()
+        print("{t1}/{t2}".format(t1=t1, t2=t2))
         print(self.df_squares)
 
     @staticmethod
