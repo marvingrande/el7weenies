@@ -69,6 +69,8 @@ class NFL7Weenies:
                 if new_name:
                     self.names.append(new_name)
                 else:
+                    if not self.names:
+                        continue
                     names_finished = True
                 self.list_names()
             self.write_names()
